@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float ranSpeed = 8f;
 
-    [SerializeField] float jumpSpeed = 5f;
-    [SerializeField] float climbSpeed = 5f;
+    [SerializeField] float jumpSpeed = 15f;
+    [SerializeField] float climbSpeed = 7f;
     Vector2 moveInput;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScale = myRigidbody.gravityScale;
+
     }
 
     // Update is called once per frame
@@ -73,9 +76,10 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity += new Vector2(0f, jumpSpeed);
         }
     }
-    void OnFire(InputValue value){
-          if (!isAlive) return;
-          Instantiate(bullet,gun.position,transform.rotation);
+    void OnFire(InputValue value)
+    {
+        if (!isAlive) return;
+        Instantiate(bullet, gun.position, transform.rotation);
     }
     void ClimbLadder()
     {
@@ -95,11 +99,27 @@ public class PlayerMovement : MonoBehaviour
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards")))
         {
-            isAlive = false;
-            myAnimator.SetTrigger("Dying");
-            myRigidbody.velocity = deathKick;
-
+            Death();
         }
 
+    }
+    void Death()
+    {
+        isAlive = false;
+        myAnimator.SetTrigger("Dying");
+        myRigidbody.velocity = deathKick;
+        Invoke("Restart", 1f);
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "fallDetector")
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y + 0.3f);
+            Death();
+        }
+    }
+    void Restart()
+    {
+        SceneManager.LoadScene(3);
     }
 }

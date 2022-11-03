@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ranSpeed: 8
-  jumpSpeed: 13.18
-  climbSpeed: 5
+  jumpSpeed: 15.29
+  climbSpeed: 7.9
   deathKick: {x: 20, y: 20}
   bullet: {fileID: 3059664759618181272, guid: cb2b99d86c415254986d44c4fc4b9816, type: 3}
   gun: {fileID: 1645337685166292504}

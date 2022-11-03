@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
 
+
     }
     void Update()
     {
@@ -18,13 +19,15 @@ public class EnemyMovement : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        moveSpeed = -moveSpeed;
+        moveSpeed *= -1;
         FlipEnemyFacin();
     }
+
     void FlipEnemyFacin()
     {
-       float facing=Mathf.Sign(myRigidBody.velocity.x);
-       float changeFacing=facing*-1;
-    transform.localScale = new Vector2(changeFacing, transform.localScale.y);
+        Vector3 enemyScale = transform.localScale;
+        enemyScale.x *= -1;
+        transform.localScale = enemyScale;
     }
+
 }
