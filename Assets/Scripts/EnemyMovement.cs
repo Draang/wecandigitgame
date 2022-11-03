@@ -5,29 +5,46 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     Rigidbody2D myRigidBody;
-    [SerializeField] float moveSpeed = 1f;
+
+    [SerializeField]
+    float moveSpeed = 1f;
+
+    //create a ia to move the enemy
+
+
+
+
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
-
-
     }
+
     void Update()
     {
-        myRigidBody.velocity = new Vector2(moveSpeed, 0);
-
+        if (IsFacingRight())
+        {
+            myRigidBody.velocity = new Vector2(moveSpeed, 0f);
+        }
+        else
+        {
+            myRigidBody.velocity = new Vector2(-moveSpeed, 0f);
+        }
     }
-    private void OnTriggerExit2D(Collider2D other)
+
+    bool IsFacingRight()
     {
-        moveSpeed *= -1;
-        FlipEnemyFacin();
+        return transform.localScale.x > 0;
     }
 
-    void FlipEnemyFacin()
+    void OnTriggerExit2D(Collider2D collision)
     {
-        Vector3 enemyScale = transform.localScale;
-        enemyScale.x *= -1;
-        transform.localScale = enemyScale;
+        transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
     }
 
+    // void FlipEnemyFacin()
+    // {
+    //     float facing = Mathf.Sign(myRigidBody.velocity.x);
+    //     float changeFacing = facing * -1;
+    //     transform.localScale = new Vector2(changeFacing, transform.localScale.y);
+    // }
 }
