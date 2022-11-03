@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     Transform gun;
+    bool flagClimb = false;
+    bool allowShootingVar = true;
 
     void Start()
     {
@@ -38,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScale = myRigidbody.gravityScale;
-
     }
 
     // Update is called once per frame
@@ -94,18 +95,41 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive)
             return;
-        Instantiate(bullet, gun.position, transform.rotation);
+        if (allowShootingVar)
+        {
+            Instantiate(bullet, gun.position, transform.rotation);
+            myAnimator.SetBool("isShooting", true);
+            allowShootingVar = false;
+            Invoke("StopAnimationThrowing", 0.1f);
+            Invoke("AllowShooting", 0.7f);
+        }
+    }
+
+    void AllowShooting()
+    {
+        // myAnimator.SetBool("isShooting", false);
+        allowShootingVar = true;
+    }
+
+    void StopAnimationThrowing()
+    {
+        myAnimator.SetBool("isShooting", false);
     }
 
     void ClimbLadder()
     {
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
+            flagClimb = false;
             myRigidbody.gravityScale = gravityScale;
             myAnimator.SetBool("isClimbing", false);
             return;
         }
-        if (moveInput.y != 0)
+        if (moveInput.y == 1)
+        {
+            flagClimb = true;
+        }
+        if (flagClimb)
         {
             Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
             myRigidbody.gravityScale = 0;
