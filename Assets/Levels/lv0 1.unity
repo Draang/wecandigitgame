@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.592
+      value: -6.448
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48
+      value: -5.594
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.z
@@ -179,12 +179,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527249, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.1428572
+      propertyPath: m_Offset.x
+      value: 0.5733322
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527249, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.0357143
+      propertyPath: m_Offset.y
+      value: -0.4755
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
@@ -10223,8 +10223,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goober (Enemy)
       objectReference: {fileID: 0}
-    - target: {fileID: 6747188312723527246, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
-      propertyPath: m_Interpolate
+    - target: {fileID: 6747188312723527247, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
+      propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
@@ -10233,11 +10233,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.03
+      value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -20.45
+      value: -20.617
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10273,11 +10273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527249, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_Offset.x
-      value: 0.6633322
+      value: 0.8633322
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527250, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: moveSpeed
-      value: 3.65
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
@@ -12041,7 +12041,7 @@ TilemapCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.2, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
 --- !u!483693784 &1243012670

@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         gravityScale = myRigidbody.gravityScale;
+
     }
 
     // Update is called once per frame
@@ -141,6 +142,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Restart()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(0);
     }
 }
