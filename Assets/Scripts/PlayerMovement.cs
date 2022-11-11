@@ -152,7 +152,8 @@ public class PlayerMovement : MonoBehaviour
         isAlive = false;
         myAnimator.SetTrigger("Dying");
         myRigidbody.velocity = deathKick;
-        Invoke("Restart", 1f);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        /* Invoke("Restart", 1f); */
     }
 
     void OnTriggerEnter2D(Collider2D other)
