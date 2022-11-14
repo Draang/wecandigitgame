@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameObject bullet;
+    GameSession gameSession;
 
     [SerializeField]
     Transform gun;
@@ -39,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        gameSession = FindObjectOfType<GameSession>();
         gravityScale = myRigidbody.gravityScale;
     }
 
@@ -47,18 +49,23 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive)
             return;
-
-        Run();
-        FlipSprite();
-        ClimbLadder();
-        Die();
+        if (gameSession.GetGameRunning())
+        {
+            Run();
+            FlipSprite();
+            ClimbLadder();
+            Die();
+        }
     }
 
     void OnMove(InputValue value)
     {
         if (!isAlive)
             return;
-        moveInput = value.Get<Vector2>();
+        if (gameSession.GetGameRunning())
+        {
+            moveInput = value.Get<Vector2>();
+        }
     }
 
     void Run()
@@ -81,27 +88,33 @@ public class PlayerMovement : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!isAlive)
-            return;
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
-            return;
-        if (value.isPressed)
+        if (gameSession.GetGameRunning())
         {
-            myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            if (!isAlive)
+                return;
+            if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+                return;
+            if (value.isPressed)
+            {
+                myRigidbody.velocity += new Vector2(0f, jumpSpeed);
+            }
         }
     }
 
     void OnFire(InputValue value)
     {
-        if (!isAlive)
-            return;
-        if (allowShootingVar)
+        if (gameSession.GetGameRunning())
         {
-            Instantiate(bullet, gun.position, transform.rotation);
-            myAnimator.SetBool("isShooting", true);
-            allowShootingVar = false;
-            Invoke("StopAnimationThrowing", 0.1f);
-            Invoke("AllowShooting", 0.7f);
+            if (!isAlive)
+                return;
+            if (allowShootingVar)
+            {
+                Instantiate(bullet, gun.position, transform.rotation);
+                myAnimator.SetBool("isShooting", true);
+                allowShootingVar = false;
+                Invoke("StopAnimationThrowing", 0.1f);
+                Invoke("AllowShooting", 0.7f);
+            }
         }
     }
 
@@ -118,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
+         if(gameSession.GetGameRunning()){
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
         {
             flagClimb = false;
@@ -136,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody.velocity = playerVelocity;
             bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
             myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
-        }
+        }}
     }
 
     void Die()

@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     float moveSpeed = 1f;
+    GameSession gameSession;
 
     //create a ia to move the enemy
 
@@ -17,17 +18,21 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     void Update()
     {
-        if (IsFacingRight())
+        if (gameSession.GetGameRunning())
         {
-            myRigidBody.velocity = new Vector2(moveSpeed, 0f);
-        }
-        else
-        {
-            myRigidBody.velocity = new Vector2(-moveSpeed, 0f);
+            if (IsFacingRight())
+            {
+                myRigidBody.velocity = new Vector2(moveSpeed, 0f);
+            }
+            else
+            {
+                myRigidBody.velocity = new Vector2(-moveSpeed, 0f);
+            }
         }
     }
 

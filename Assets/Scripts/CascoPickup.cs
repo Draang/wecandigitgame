@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CascoPickup : MonoBehaviour
 {
-    int enterIntents=0;
+    bool liveCollected=false;
    private void OnTriggerEnter2D(Collider2D other) {
-    if(other.tag=="Player" && enterIntents==0){
-         enterIntents++;
+    if(other.tag=="Player" && !liveCollected){
+         liveCollected=true;
+         gameObject.SetActive(false);
         Destroy(gameObject);
         FindObjectOfType<GameSession>().setMoreLifes();
-        Debug.Log("player pickup a life");
     }
    }
 }
