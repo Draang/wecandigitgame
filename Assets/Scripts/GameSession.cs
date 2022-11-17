@@ -99,4 +99,7 @@ public class GameSession : MonoBehaviour
     {
         return gameRunning;
     }
+     void doExitGame() {
+     Application.Quit();
+ }
 }

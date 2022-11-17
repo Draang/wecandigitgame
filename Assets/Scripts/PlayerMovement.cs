@@ -181,6 +181,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
