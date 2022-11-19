@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     float moveSpeed = 1f;
     GameSession gameSession;
+  
 
     //create a ia to move the enemy
 
@@ -19,6 +20,7 @@ public class EnemyMovement : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
+      
     }
 
     void Update()

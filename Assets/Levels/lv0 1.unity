@@ -13170,37 +13170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0e0d99523151c409e726f6c28dc7b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1522991378 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5949402655039722357, guid: 3968a59330b37954aa3d0aee564fefa5, type: 3}
-  m_PrefabInstance: {fileID: 5949402656645667068}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1522991384
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522991378}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.11}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.19}
-  m_EdgeRadius: 0
 --- !u!1 &1585124594
 GameObject:
   m_ObjectHideFlags: 0
@@ -14424,11 +14393,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5949402655556826392, guid: 3968a59330b37954aa3d0aee564fefa5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.84
+      value: -6.66
       objectReference: {fileID: 0}
     - target: {fileID: 5949402655556826392, guid: 3968a59330b37954aa3d0aee564fefa5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4826561
+      value: 1.39
       objectReference: {fileID: 0}
     - target: {fileID: 5949402655556826392, guid: 3968a59330b37954aa3d0aee564fefa5, type: 3}
       propertyPath: m_LocalPosition.z

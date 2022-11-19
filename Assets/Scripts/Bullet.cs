@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     Rigidbody2D myRigidbody;
     [SerializeField] float bulletSpeed = 10f;
+    [SerializeField] AnimatorControllerParameter enemyAnimation;
     PlayerMovement player;
     GameSession gameSession;
     float xSpeed;
@@ -28,11 +29,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.tag == "Enemys")
         {
-            Destroy(other.gameObject);
-
+            other.GetComponent<Animator>().SetTrigger("Dying");
+             Destroy(other.gameObject,0.667f);
         }
         Destroy(gameObject);
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         Destroy(gameObject);
