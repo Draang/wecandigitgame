@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 730329245}
   - component: {fileID: 3752377887178588191}
   m_Layer: 8
-  m_Name: Ginge[player]
+  m_Name: Marvin(player)
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

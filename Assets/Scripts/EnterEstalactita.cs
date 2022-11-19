@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnterEstalactita : MonoBehaviour
 {
     Animator myAnimator;
+    [SerializeField] GameObject estalactita1;
     EstalactitaFall estalactita;
     private void Start()
     {
-        estalactita = FindObjectOfType<EstalactitaFall>();
+        estalactita = estalactita1.GetComponent<EstalactitaFall>();
+        
         myAnimator=GetComponent<Animator>();
     }
     private void OnTriggerEnter2D(Collider2D other)
