@@ -8,6 +8,7 @@ TagManager:
   - bullet
   - fallDetector
   - platforms
+  - Estalactita
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Hazards
   - Bullets
   - Interactibles
-  - 
+  - Estalactita
   - 
   - 
   - 

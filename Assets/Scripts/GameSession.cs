@@ -51,7 +51,9 @@ public class GameSession : MonoBehaviour
         }
         else
         {
-            ResetGameSession();
+            playerLives--;
+            livesTxt.text = playerLives.ToString();
+            GameOver();
         }
     }
     private void Update()
@@ -75,7 +77,7 @@ public class GameSession : MonoBehaviour
         livesTxt.text = playerLives.ToString();
     }
 
-    private void ResetGameSession()
+    private void GameOver()
     {
         gameOverCanvas.enabled = true;
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
@@ -124,7 +126,7 @@ public class GameSession : MonoBehaviour
     public void doReturnToMenu()
     {
         Destroy(gameObject);
-        // ResetGameSession();
+        // GameOver();
         SceneManager.LoadScene(0);
 
     }

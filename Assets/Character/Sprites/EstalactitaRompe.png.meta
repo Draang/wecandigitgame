@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: a55347ee8f2b63047848ce30529c21dd
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 250
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EstalactitaRompe_0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1501
+        width: 190
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3a0329714272047b7dbcf1366e0d2a
+      internalID: -377319065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_1
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1349
+        width: 133
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8718ef363c2d60e41838cd97773b9df4
+      internalID: 1137269489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_2
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 1292
+        width: 190
+        height: 323
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2136e468aaa80074a8245b22145ed411
+      internalID: -232183037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_3
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 665
+        width: 266
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 153012b2427592b4e88d618a1202f88a
+      internalID: 1347407566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_4
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 722
+        width: 323
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c537075f41923e74f835ecfba4ab9a23
+      internalID: 6280481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_5
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 608
+        width: 342
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e230da36225424b9d047973046b379
+      internalID: 1267902893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1226
+        height: 239
+      alignment: 9
+      pivot: {x: 0.49889413, y: 6.0237527}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7712f64e48f64fb45b5342978b7efeed
+      internalID: -1006215482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EstalactitaRompe_6
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 797
+        width: 35
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41efb44e68eb93e48a49a23dc07d7191
+      internalID: 1118088399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      EstalactitaRompe_44: -1128589641
+      EstalactitaRompe_18: 456332120
+      EstalactitaRompe_14: -140133338
+      EstalactitaRompe_42: -1006215482
+      EstalactitaRompe_5: 1267902893
+      EstalactitaRompe_45: 1863104261
+      EstalactitaRompe_28: 1989748588
+      EstalactitaRompe_22: 2014546372
+      EstalactitaRompe_31: 1177409546
+      EstalactitaRompe_13: 53145161
+      EstalactitaRompe_10: -836991229
+      EstalactitaRompe_21: -1544332727
+      EstalactitaRompe_2: -232183037
+      EstalactitaRompe_4: 6280481
+      EstalactitaRompe_39: -529914527
+      EstalactitaRompe_3: 1347407566
+      EstalactitaRompe_1: 1137269489
+      EstalactitaRompe_17: 1480658549
+      EstalactitaRompe_23: 635721203
+      EstalactitaRompe_27: -602851893
+      EstalactitaRompe_34: 1897157497
+      EstalactitaRompe_7: 1270392566
+      EstalactitaRompe_15: 1644404625
+      EstalactitaRompe_11: -1700901254
+      EstalactitaRompe_43: -2122519636
+      EstalactitaRompe_19: -1075606175
+      EstalactitaRompe_9: -1443162726
+      EstalactitaRompe_8: 1710257279
+      EstalactitaRompe_16: 412778464
+      EstalactitaRompe_47: 1468084690
+      EstalactitaRompe_36: 114981861
+      EstalactitaRompe_24: 699684639
+      EstalactitaRompe_48: 347490762
+      EstalactitaRompe_30: -735680233
+      EstalactitaRompe_32: 514738927
+      EstalactitaRompe_46: 1749391047
+      EstalactitaRompe_25: 1765901670
+      EstalactitaRompe_40: 2083959375
+      EstalactitaRompe_38: 2117295568
+      EstalactitaRompe_12: -2011474625
+      EstalactitaRompe_35: -1218362739
+      EstalactitaRompe_37: 513522753
+      EstalactitaRompe_41: 1694945206
+      EstalactitaRompe_29: 1948134377
+      EstalactitaRompe_6: 1118088399
+      EstalactitaRompe_33: -1223254855
+      EstalactitaRompe_20: 1766250644
+      EstalactitaRompe_26: 2126281498
+      EstalactitaRompe_0: -377319065
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
