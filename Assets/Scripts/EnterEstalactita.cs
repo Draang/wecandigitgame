@@ -14,6 +14,7 @@ public class EnterEstalactita : MonoBehaviour
         if (other.tag == "Player")
         {
             estalactita.changeGravity();
+            Destroy(gameObject);
         }
     }
 }
