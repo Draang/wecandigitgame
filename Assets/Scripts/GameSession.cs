@@ -15,6 +15,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject btnReturn;
     [SerializeField] GameObject btnStart;
     [SerializeField] bool gameRunning = true;
+    [SerializeField] Canvas gameOverCanvas;
     private void Awake()
     {
         int numGameSessions = FindObjectsOfType<GameSession>().Length;
@@ -28,15 +29,17 @@ public class GameSession : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
-    void ManageUiButtons(bool ban){
-            btnReturn.SetActive(ban);
-            btnStart.SetActive(ban);
-            pauseTxt.enabled = ban;
-            continueTxt.enabled = ban;
+    void ManageUiButtons(bool ban)
+    {
+        btnReturn.SetActive(ban);
+        btnStart.SetActive(ban);
+        pauseTxt.enabled = ban;
+        continueTxt.enabled = ban;
     }
     private void Start()
     {
         livesTxt.text = playerLives.ToString();
+        gameOverCanvas.enabled = false;
         ManageUiButtons(false);
         ChangeGameRunningState(true);
     }
@@ -74,9 +77,10 @@ public class GameSession : MonoBehaviour
 
     private void ResetGameSession()
     {
+        gameOverCanvas.enabled = true;
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
-        SceneManager.LoadScene(0);
-        Destroy(gameObject);
+        /* SceneManager.LoadScene(0);
+        Destroy(gameObject); */
     }
     public void ChangeGameRunningState(bool gameRunning)
     {
@@ -122,6 +126,13 @@ public class GameSession : MonoBehaviour
         Destroy(gameObject);
         // ResetGameSession();
         SceneManager.LoadScene(0);
-        
+
+    }
+    public void doRestartGame()
+    {
+     
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+        Destroy(gameObject);
     }
 }
