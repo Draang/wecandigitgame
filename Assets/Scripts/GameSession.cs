@@ -11,7 +11,9 @@ public class GameSession : MonoBehaviour
     [SerializeField] int playerLives = 1;
     [SerializeField] TextMeshProUGUI livesTxt;
     [SerializeField] TextMeshProUGUI pauseTxt;
+    [SerializeField] TextMeshProUGUI continueTxt;
     [SerializeField] GameObject btnReturn;
+    [SerializeField] GameObject btnStart;
     [SerializeField] bool gameRunning = true;
     private void Awake()
     {
@@ -26,11 +28,17 @@ public class GameSession : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
     }
+    void ManageUiButtons(bool ban){
+            btnReturn.SetActive(ban);
+            btnStart.SetActive(ban);
+            pauseTxt.enabled = ban;
+            continueTxt.enabled = ban;
+    }
     private void Start()
     {
         livesTxt.text = playerLives.ToString();
-        btnReturn.SetActive(false);
-        pauseTxt.enabled = false;
+        ManageUiButtons(false);
+        ChangeGameRunningState(true);
     }
     public void ProcessPlayerDeath()
     {
@@ -78,8 +86,7 @@ public class GameSession : MonoBehaviour
         {
             //Game running
             Time.timeScale = 1f;
-            pauseTxt.enabled = false;
-            btnReturn.SetActive(false);
+            ManageUiButtons(false);
             foreach (AudioSource audio in allAudios)
             {
                 audio.Play();
@@ -88,8 +95,7 @@ public class GameSession : MonoBehaviour
         else
         {
             //Game paused
-            pauseTxt.enabled = true;
-            btnReturn.SetActive(true);
+            ManageUiButtons(true);
             Time.timeScale = 0f;
             foreach (AudioSource audio in allAudios)
             {
@@ -114,6 +120,8 @@ public class GameSession : MonoBehaviour
     public void doReturnToMenu()
     {
         Destroy(gameObject);
+        // ResetGameSession();
         SceneManager.LoadScene(0);
+        
     }
 }
