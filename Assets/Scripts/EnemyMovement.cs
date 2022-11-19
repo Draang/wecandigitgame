@@ -47,11 +47,4 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
     }
-
-    // void FlipEnemyFacin()
-    // {
-    //     float facing = Mathf.Sign(myRigidBody.velocity.x);
-    //     float changeFacing = facing * -1;
-    //     transform.localScale = new Vector2(changeFacing, transform.localScale.y);
-    // }
 }
