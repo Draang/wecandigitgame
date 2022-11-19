@@ -9,12 +9,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     float moveSpeed = 1f;
     GameSession gameSession;
-
-    //create a ia to move the enemy
-
-
-
-
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -45,11 +39,4 @@ public class EnemyMovement : MonoBehaviour
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
     }
-
-    // void FlipEnemyFacin()
-    // {
-    //     float facing = Mathf.Sign(myRigidBody.velocity.x);
-    //     float changeFacing = facing * -1;
-    //     transform.localScale = new Vector2(changeFacing, transform.localScale.y);
-    // }
 }
