@@ -9,12 +9,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     float moveSpeed = 1f;
     GameSession gameSession;
-  
-
-    //create a ia to move the enemy
-
-
-
 
     void Start()
     {
