@@ -4,22 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
     public void StartGame()
     {
+        Destroy(gameObject);
         SceneManager.LoadScene(1);
     }
-     public void doExitGame() {
-     Application.Quit();
- }
+    public void doExitGame()
+    {
+        Destroy(gameObject);
+        Application.Quit();
+    }
 }

@@ -11,6 +11,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] int playerLives = 1;
     [SerializeField] TextMeshProUGUI livesTxt;
     [SerializeField] TextMeshProUGUI pauseTxt;
+    [SerializeField] GameObject btnReturn;
     [SerializeField] bool gameRunning = true;
     private void Awake()
     {
@@ -21,13 +22,15 @@ public class GameSession : MonoBehaviour
         }
         else
         {
+            gameRunning = true;
             DontDestroyOnLoad(gameObject);
         }
     }
     private void Start()
     {
         livesTxt.text = playerLives.ToString();
-        pauseTxt.enabled=false;
+        btnReturn.SetActive(false);
+        pauseTxt.enabled = false;
     }
     public void ProcessPlayerDeath()
     {
@@ -75,7 +78,8 @@ public class GameSession : MonoBehaviour
         {
             //Game running
             Time.timeScale = 1f;
-            pauseTxt.enabled=false;
+            pauseTxt.enabled = false;
+            btnReturn.SetActive(false);
             foreach (AudioSource audio in allAudios)
             {
                 audio.Play();
@@ -84,7 +88,8 @@ public class GameSession : MonoBehaviour
         else
         {
             //Game paused
-            pauseTxt.enabled=true;
+            pauseTxt.enabled = true;
+            btnReturn.SetActive(true);
             Time.timeScale = 0f;
             foreach (AudioSource audio in allAudios)
             {
@@ -92,14 +97,23 @@ public class GameSession : MonoBehaviour
             }
         }
     }
-    public void onClickPauseBtn(){
+    public void onClickPauseBtn()
+    {
         ChangeGameRunningState(!gameRunning);
     }
     public bool GetGameRunning()
     {
         return gameRunning;
     }
-     void doExitGame() {
-     Application.Quit();
- }
+    public void doExitGame()
+    {
+        Destroy(gameObject);
+        Application.Quit();
+
+    }
+    public void doReturnToMenu()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
+    }
 }
