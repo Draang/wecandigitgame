@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class batMovement : MonoBehaviour
 {
-    // Rigidbody2D myRigidBody;
+    Rigidbody2D myRigidBody;
 
     [SerializeField]
     private float moveSpeed = 1f;
@@ -14,33 +14,52 @@ public class batMovement : MonoBehaviour
     private Transform target;
     [SerializeField]
     private float attackDistance;
+    GameSession gameSession;
 
     void Start()
     {
-
+        myRigidBody = GetComponent<Rigidbody2D>();
+        gameSession = FindObjectOfType<GameSession>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void Update()
     {
-        // if(Vector2)
-        if(Vector2.Distance(transform.position, target.position) < attackDistance){
-            transform.position  = Vector2.MoveTowards (transform.position, target.position, moveSpeed * Time.deltaTime);
-        }
-        else
+        if (gameSession.GetGameRunning())
         {
-            transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
-        if (transform.position == positions[index])
-        {
-            if (index == positions.Length - 1)
             {
-                index = 0;
-            }
-            else
-            {
-                index++;
+                if (Vector2.Distance(transform.position, target.position) < attackDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                    if (IsPlayerAtRight(transform.position.x, target.transform.position.x))
+                    {
+                        transform.localScale = new Vector2((-Mathf.Sign(myRigidBody.velocity.x)), 1f);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector2((Mathf.Sign(myRigidBody.velocity.x)), 1f);
+                    }
+                }
+                else
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
+                    if (transform.position == positions[index])
+                    {
+                        if (index == positions.Length - 1)
+                        {
+                            index = 0;
+                        }
+                        else
+                        {
+                            index++;
+                        }
+                    }
+                }
             }
         }
+        bool IsPlayerAtRight(float player, float enemy)
+        {
+            return player > enemy;
         }
     }
 }
