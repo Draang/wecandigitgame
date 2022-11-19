@@ -12,6 +12,9 @@ public class batMovement : MonoBehaviour
     private Vector3[] positions;
     private int index;
     private Transform target;
+    [SerializeField]
+    private float attackDistance;
+
     void Start()
     {
 
@@ -21,10 +24,12 @@ public class batMovement : MonoBehaviour
     void Update()
     {
         // if(Vector2)
-        if(Vector2.Distance(transform.position, target.position) > 3){
+        if(Vector2.Distance(transform.position, target.position) < attackDistance){
             transform.position  = Vector2.MoveTowards (transform.position, target.position, moveSpeed * Time.deltaTime);
         }
-        transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
         if (transform.position == positions[index])
         {
             if (index == positions.Length - 1)
@@ -36,37 +41,6 @@ public class batMovement : MonoBehaviour
                 index++;
             }
         }
+        }
     }
-    // GameSession gameSession;
-
-    // void Start()
-    // {
-    //     myRigidBody = GetComponent<Rigidbody2D>();
-    //     gameSession = FindObjectOfType<GameSession>();
-    // }
-
-    // void Update()
-    // {
-    //     if (gameSession.GetGameRunning())
-    //     {
-    //         if (IsFacingRight())
-    //         {
-    //             myRigidBody.velocity = new Vector2(moveSpeed, 0f);
-    //         }
-    //         else
-    //         {
-    //             myRigidBody.velocity = new Vector2(-moveSpeed, 0f);
-    //         }
-    //     }
-    // }
-
-    // bool IsFacingRight()
-    // {
-    //     return transform.localScale.x > 0;
-    // }
-
-    // void OnTriggerExit2D(Collider2D collision)
-    // {
-    //     transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
-    // }
 }
