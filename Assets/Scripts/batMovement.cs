@@ -11,27 +11,34 @@ public class batMovement : MonoBehaviour
     [SerializeField]
     private Vector3[] positions;
     private int index;
+    private Transform target;
+    void Start()
+    {
 
-void Start(){
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
-    target = GameObject.findGameObjectWithTag("Player").GetComponent<Transform>();
-}
-
-    void Update(){
-        if(Vector2)
+    void Update()
+    {
+        // if(Vector2)
+        if(Vector2.Distance(transform.position, target.position) > 3){
+            transform.position  = Vector2.MoveTowards (transform.position, target.position, moveSpeed * Time.deltaTime);
+        }
         transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
         if (transform.position == positions[index])
         {
-            if (index == positions.Length -1)
+            if (index == positions.Length - 1)
             {
                 index = 0;
-            }else{
+            }
+            else
+            {
                 index++;
             }
-        } 
+        }
     }
     // GameSession gameSession;
-    
+
     // void Start()
     // {
     //     myRigidBody = GetComponent<Rigidbody2D>();
