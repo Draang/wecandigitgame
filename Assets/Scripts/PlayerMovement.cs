@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     Transform gun;
     bool flagClimb = false;
+    bool flagFall = false;
     bool allowShootingVar = true;
 
     void Start()
@@ -52,13 +53,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isAlive)
             return;
-        if (gameSession.GetGameRunning())
+        if (!gameSession.GetGameRunning())
         {
-            Run();
-            FlipSprite();
-            ClimbLadder();
-            Die();
+            return;
         }
+        Run();
+        FlipSprite();
+        ClimbLadder();
+        Die();
     }
 
     void OnMove(InputValue value)
@@ -134,31 +136,33 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-         if(gameSession.GetGameRunning()){
-        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        if (gameSession.GetGameRunning())
         {
-            flagClimb = false;
-            myRigidbody.gravityScale = gravityScale;
-            myAnimator.SetBool("isClimbing", false);
-            return;
+            if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+            {
+                flagClimb = false;
+                myRigidbody.gravityScale = gravityScale;
+                myAnimator.SetBool("isClimbing", false);
+                return;
+            }
+            if (moveInput.y == 1)
+            {
+                flagClimb = true;
+            }
+            if (flagClimb)
+            {
+                Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
+                myRigidbody.gravityScale = 0;
+                myRigidbody.velocity = playerVelocity;
+                bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+                myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
+            }
         }
-        if (moveInput.y == 1)
-        {
-            flagClimb = true;
-        }
-        if (flagClimb)
-        {
-            Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
-            myRigidbody.gravityScale = 0;
-            myRigidbody.velocity = playerVelocity;
-            bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
-            myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
-        }}
     }
 
     void Die()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards","Estalactita")))
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
             Death();
         }
@@ -174,12 +178,15 @@ public class PlayerMovement : MonoBehaviour
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
         /* Invoke("Restart", 1f); */
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (flagFall)
+        {
+            return;
+        }
         if (other.gameObject.tag == "fallDetector")
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + 0.3f);
+            flagFall = true;
             Death();
         }
     }

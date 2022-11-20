@@ -32,27 +32,15 @@ public class batMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < attackDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector2(IsPlayerAtRight(transform.position.x, target.transform.position.x) ? (-Mathf.Sign(myRigidBody.velocity.x)) : (Mathf.Sign(myRigidBody.velocity.x)), 1f);
+            transform.localScale = new Vector2(transform.position.x > target.transform.position.x ? (-Mathf.Sign(myRigidBody.velocity.x)) : (Mathf.Sign(myRigidBody.velocity.x)), 1f);
         }
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
             if (transform.position == positions[index])
             {
-                if (index == positions.Length - 1)
-                {
-                    index = 0;
-                }
-                else
-                {
-                    index++;
-                }
+                index = (index == positions.Length - 1) ? 0 : ++index;
             }
-        }
-
-        bool IsPlayerAtRight(float player, float enemy)
-        {
-            return player > enemy;
         }
     }
 }
