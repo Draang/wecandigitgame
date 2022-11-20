@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameObject bullet;
+    
+    [SerializeField]
+    GameObject cascoLost;
     GameSession gameSession;
 
     [SerializeField]
@@ -164,8 +167,10 @@ public class PlayerMovement : MonoBehaviour
     void Death()
     {
         isAlive = false;
+          Instantiate(cascoLost, gun.position, transform.rotation);
         myAnimator.SetTrigger("Dying");
         myRigidbody.velocity = deathKick;
+        
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
         /* Invoke("Restart", 1f); */
     }
