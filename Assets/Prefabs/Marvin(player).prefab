@@ -196,6 +196,7 @@ MonoBehaviour:
   climbSpeed: 7.9
   deathKick: {x: 20, y: 20}
   bullet: {fileID: 3059664759618181272, guid: cb2b99d86c415254986d44c4fc4b9816, type: 3}
+  cascoLost: {fileID: 2566368783236888682, guid: 5f6d881f8e5c6284e9b1d2e9e37b21bb, type: 3}
   gun: {fileID: 1645337685166292504}
 --- !u!61 &730329245
 BoxCollider2D:
