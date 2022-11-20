@@ -8,33 +8,23 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     float moveSpeed = 1f;
+    float moveRate = 1f;
     GameSession gameSession;
 
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
-      
     }
 
     void Update()
     {
-        if (gameSession.GetGameRunning())
+        if (!gameSession.GetGameRunning())
         {
-            if (IsFacingRight())
-            {
-                myRigidBody.velocity = new Vector2(moveSpeed, 0f);
-            }
-            else
-            {
-                myRigidBody.velocity = new Vector2(-moveSpeed, 0f);
-            }
+            return;
         }
-    }
-
-    bool IsFacingRight()
-    {
-        return transform.localScale.x > 0;
+        moveRate = transform.localScale.x > 0 ? moveSpeed : -moveSpeed;
+        myRigidBody.velocity = new Vector2(moveRate, 0f);
     }
 
     void OnTriggerExit2D(Collider2D collision)
