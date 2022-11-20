@@ -30,7 +30,7 @@ public class Bullet : MonoBehaviour
         if (other.tag == "Enemys")
         {
             other.GetComponent<Animator>().SetTrigger("Dying");
-             Destroy(other.gameObject,0.45f);
+             Destroy(other.gameObject,0.35f);
         }
         Destroy(gameObject);
     }
