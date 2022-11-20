@@ -80,30 +80,25 @@ public class GameSession : MonoBehaviour
     private void GameOver()
     {
         gameOverCanvas.enabled = true;
+        Time.timeScale = 0f;
+        gameRunning = false;
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
-        /* SceneManager.LoadScene(0);
-        Destroy(gameObject); */
     }
     public void ChangeGameRunningState(bool gameRunning)
     {
         this.gameRunning = gameRunning;
         AudioSource[] allAudios = FindObjectsOfType<AudioSource>();
-        if (this.gameRunning)
+        bool ban = this.gameRunning;
+        ManageUiButtons(!ban);
+        Time.timeScale = ban ? 1f : 0f;
+        foreach (AudioSource audio in allAudios)
         {
-            //Game running
-            Time.timeScale = 1f;
-            ManageUiButtons(false);
-            foreach (AudioSource audio in allAudios)
+            if (ban)
             {
+
                 audio.Play();
             }
-        }
-        else
-        {
-            //Game paused
-            ManageUiButtons(true);
-            Time.timeScale = 0f;
-            foreach (AudioSource audio in allAudios)
+            else
             {
                 audio.Pause();
             }
@@ -126,13 +121,12 @@ public class GameSession : MonoBehaviour
     public void doReturnToMenu()
     {
         Destroy(gameObject);
-        // GameOver();
         SceneManager.LoadScene(0);
 
     }
     public void doRestartGame()
     {
-     
+
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         Destroy(gameObject);
