@@ -21,10 +21,9 @@ public class batMovement : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        positions = new Vector3[3];
-        positions[0] = new Vector3(myRigidBody.position.x + 5, myRigidBody.position.y + 13, 0);
-        positions[1] = new Vector3(myRigidBody.position.x + 1, myRigidBody.position.y + 1, 0);
-        positions[2] = new Vector3(myRigidBody.position.x, myRigidBody.position.y + 1, 0);
+        positions = new Vector3[2];
+        positions[0] = new Vector3(myRigidBody.position.x + 5, myRigidBody.position.y + 5, 0);
+        positions[1] = new Vector3(myRigidBody.position.x, myRigidBody.position.y + 1, 0);
     }
 
     void Update()
