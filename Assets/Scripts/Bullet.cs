@@ -20,17 +20,18 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        if (gameSession.GetGameRunning())
+        if (!gameSession.GetGameRunning())
         {
-            myRigidbody.velocity = new Vector2(xSpeed, 0f);
+            return;
         }
+        myRigidbody.velocity = new Vector2(xSpeed, 0f);
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Enemys")
         {
             other.GetComponent<Animator>().SetTrigger("Dying");
-             Destroy(other.gameObject,0.35f);
+            Destroy(other.gameObject, 0.35f);
         }
         Destroy(gameObject);
     }
