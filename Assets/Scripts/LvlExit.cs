@@ -23,6 +23,6 @@ public class LvlExit : MonoBehaviour
             nextLvl = 0;
         }
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
-        SceneManager.LoadScene(currentSceneIndex);
+        SceneManager.LoadScene(nextLvl);
     }
 }

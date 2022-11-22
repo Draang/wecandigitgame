@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5.42
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -500,7 +500,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.18
+  orthographic size: 5.76
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -524,7 +524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.950612, y: -1.9490067, z: -10.106686}
+  m_LocalPosition: {x: -8.228299, y: -3.2447824, z: -10.106686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7338,7 +7338,7 @@ MonoBehaviour:
   m_Instructions:
   - m_FullHash: 265838108
     m_VirtualCamera: {fileID: 1113448822}
-    m_ActivateAfter: 0
+    m_ActivateAfter: 0.3
     m_MinDuration: 0
   - m_FullHash: 256545655
     m_VirtualCamera: {fileID: 1609052632}
@@ -7385,7 +7385,7 @@ MonoBehaviour:
   m_BoundingVolume: {fileID: 0}
   m_BoundingShape2D: {fileID: 1301663157}
   m_ConfineScreenEdges: 1
-  m_Damping: 0
+  m_Damping: 0.2
 --- !u!1 &1059219817
 GameObject:
   m_ObjectHideFlags: 0
@@ -7575,7 +7575,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.18
+    OrthographicSize: 5.76
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -8514,9 +8514,10 @@ PolygonCollider2D:
       - {x: -11.688658, y: 8.863486}
       - {x: -22.881, y: 8.5043125}
       - {x: -36.610313, y: 7.5369473}
-      - {x: -36.62268, y: -21.421082}
-      - {x: 21.732395, y: -21.491879}
-      - {x: 72.56828, y: -21.586178}
+      - {x: -42.696495, y: -37.5299}
+      - {x: 23.05279, y: -38.92109}
+      - {x: 74.945, y: -41.920258}
+      - {x: 97.47657, y: 1.5584888}
       - {x: 72.460365, y: 5.199895}
   m_UseDelaunayMesh: 0
 --- !u!1 &1330642317
@@ -9129,9 +9130,9 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12.22
-    NearClipPlane: 0.3
-    FarClipPlane: 1003.39
+    OrthographicSize: 4.65
+    NearClipPlane: -0.05
+    FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -9529,12 +9530,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 0.9
-  m_YDamping: 1.2
-  m_ZDamping: 1.2
+  m_XDamping: 0
+  m_YDamping: 0.8
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 0.6
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &1743038909
@@ -9662,7 +9663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 1301663157}
+  m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &1862063005
@@ -10563,11 +10564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478736721251116566, guid: 0bad74e0bc2e0cd4a995745c2846e140, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 70.7
+      value: -22.58
       objectReference: {fileID: 0}
     - target: {fileID: 4478736721251116566, guid: 0bad74e0bc2e0cd4a995745c2846e140, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.6
+      value: -4.55
       objectReference: {fileID: 0}
     - target: {fileID: 4478736721251116566, guid: 0bad74e0bc2e0cd4a995745c2846e140, type: 3}
       propertyPath: m_LocalPosition.z
