@@ -5,11 +5,12 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6747188312723527243, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_Name
-      value: Bat Variant
+      value: Bat Variant (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527244, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_Controller
@@ -25,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.2
+      value: 68.16
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.8
+      value: -15.85
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.z
@@ -85,6 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6747188312723527250, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
 --- !u!1 &2156087761336946487 stripped
 GameObject:
@@ -103,8 +105,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dccdb7a8bffed3b4db9c1210a0266eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4.01
-  positions:
-  - {x: 7, y: -5.5, z: 0}
-  - {x: 8, y: 5, z: 0}
-  attackDistance: 5.67
+  moveSpeed: 3.1
+  positions: []
+  attackDistance: 19.43
+--- !u!114 &1534215428597716360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2156087761336946487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccdb7a8bffed3b4db9c1210a0266eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3.5
+  positions: []
+  attackDistance: 14.56
