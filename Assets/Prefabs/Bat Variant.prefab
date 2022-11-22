@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6747188312723527243, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_Name
-      value: Bat Variant
+      value: Bat Variant (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527244, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_Controller
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.07
+      value: 68.16
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.56
+      value: -15.85
       objectReference: {fileID: 0}
     - target: {fileID: 6747188312723527248, guid: 20ba1fe2c528bf7418f2974152919545, type: 3}
       propertyPath: m_LocalPosition.z
@@ -106,11 +106,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.1
-  positions:
-  - {x: 7, y: -5.5, z: 0}
-  - {x: 8, y: 5, z: 0}
-  attackDistance: 8.55
---- !u!114 &4248512940807538459
+  positions: []
+  attackDistance: 19.43
+--- !u!114 &1534215428597716360
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,7 +121,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.5
-  positions:
-  - {x: 7, y: -5.5, z: 0}
-  - {x: 8, y: 6, z: 0}
-  attackDistance: 8.34
+  positions: []
+  attackDistance: 14.56
