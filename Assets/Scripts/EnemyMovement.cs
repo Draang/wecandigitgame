@@ -42,7 +42,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             //check if other enemy is on the right
-            Invoke("Flip", 0.9f);
+            Invoke("Flip", 0.6f);
         }
     }
     void Flip()

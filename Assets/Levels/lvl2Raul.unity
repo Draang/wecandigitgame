@@ -4559,6 +4559,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4815707073409910100, guid: 57a2a7a7f01e70f4787e45c787f37659, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815707073409910100, guid: 57a2a7a7f01e70f4787e45c787f37659, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.88
       objectReference: {fileID: 0}
@@ -4623,8 +4627,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4815707074341063068, guid: 57a2a7a7f01e70f4787e45c787f37659, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4815707074341063068, guid: 57a2a7a7f01e70f4787e45c787f37659, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.88
+      value: 8.14
       objectReference: {fileID: 0}
     - target: {fileID: 4815707074659623504, guid: 57a2a7a7f01e70f4787e45c787f37659, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4733,11 +4741,11 @@ MonoBehaviour:
   m_Instructions:
   - m_FullHash: 265838108
     m_VirtualCamera: {fileID: 1113448822}
-    m_ActivateAfter: 1
+    m_ActivateAfter: 0.5
     m_MinDuration: 0
   - m_FullHash: 256545655
     m_VirtualCamera: {fileID: 1609052632}
-    m_ActivateAfter: 0
+    m_ActivateAfter: 0.4
     m_MinDuration: 0
   - m_FullHash: -725336713
     m_VirtualCamera: {fileID: 364228642}

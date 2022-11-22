@@ -20,9 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/lv0 1.unity
     guid: d509f2167105f204eada2ebb1b2bee2c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Levels/Nivel 1.unity
     guid: a678fc554b16b3b44b62d6ec6b31afbb
+  - enabled: 1
+    path: Assets/Levels/lvl2Raul.unity
+    guid: 5f087e9e4da71e549bb183ba6aedec6e
   - enabled: 1
     path: Assets/Levels/lv1Angel.unity
     guid: ad595d424bca2cc4c9c4c51d5af08232
