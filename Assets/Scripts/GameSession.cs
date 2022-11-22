@@ -82,7 +82,7 @@ public class GameSession : MonoBehaviour
         gameOverCanvas.enabled = true;
         Time.timeScale = 0f;
         gameRunning = false;
-        ManageUiButtons(true);
+        /* ManageUiButtons(true); */
         
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
     }

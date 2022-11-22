@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6747188312723527250}
   - component: {fileID: 6747188312723527249}
   m_Layer: 11
-  m_Name: Goober (Enemy)
+  m_Name: Lombriz
   m_TagString: Enemys
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6747188312723527247
 SpriteRenderer:
