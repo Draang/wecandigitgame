@@ -29,13 +29,25 @@ public class EnemyMovement : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+        if (collision.gameObject.tag == "bullet")
+        {
+            return;
+        }
+        Flip();
     }
-    void OnCollisionEnter2D(Collision2D collision)
+    //avoid enemy to collide with another if it is so close
+    void OnTriggerStay2D(Collider2D collision)
     {
+        //check if other enemy is close
         if (collision.gameObject.tag == "Enemy")
         {
-            transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+            //check if other enemy is on the right
+            Invoke("Flip", 0.9f);
         }
     }
+    void Flip()
+    {
+        transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+    }
 }
+

@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 1645337685166292504}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4074144408998807521
 Animator:
@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b6eb3bc4a4b0746a28d673c1182b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ranSpeed: 8
-  jumpSpeed: 15.94
+  ranSpeed: 8.8
+  jumpSpeed: 17.19
   climbSpeed: 7.9
   deathKick: {x: 20, y: 20}
   bullet: {fileID: 3059664759618181272, guid: cb2b99d86c415254986d44c4fc4b9816, type: 3}

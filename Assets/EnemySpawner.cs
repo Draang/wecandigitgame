@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] enemyPrefabs;
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 4f, 60f);
+        InvokeRepeating("SpawnEnemy", 2f, 70f);
     }
     void Update()
     {
@@ -16,9 +16,23 @@ public class EnemySpawner : MonoBehaviour
     }
     void SpawnEnemy()
     {
+        int bats = 0;
+        int worms = 0;
         for (int i = 0; i < spawnPoints.Length; i++)
         {
             int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+            if(randomEnemy == 0)
+            {
+                bats++;
+                if(bats > 3)
+                {
+                    randomEnemy = 1;
+                }
+            }
+            else
+            {
+                worms++;
+            }
             Instantiate(enemyPrefabs[randomEnemy], spawnPoints[i].position, Quaternion.identity);
 
         }
