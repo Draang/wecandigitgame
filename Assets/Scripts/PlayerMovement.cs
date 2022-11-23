@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
+  
     void OnFire(InputValue value)
     {
         if (gameSession.GetGameRunning())
@@ -164,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
+    
             Death();
         }
     }

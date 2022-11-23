@@ -71,6 +71,7 @@ public class GameSession : MonoBehaviour
         livesTxt.text = playerLives.ToString();
 
     }
+    
     public void setMoreLifes()
     {
         playerLives++;
