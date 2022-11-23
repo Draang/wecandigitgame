@@ -5,9 +5,7 @@ using UnityEngine;
 public class batMovement : MonoBehaviour
 {
     Rigidbody2D myRigidBody;
-
-    [SerializeField]
-    private float moveSpeed = 1f;
+    private float moveSpeed = 4.0f;
     [SerializeField]
     private Vector3[] positions;
     private int index;
@@ -35,13 +33,13 @@ public class batMovement : MonoBehaviour
         if (Vector2.Distance(transform.position, target.position) < attackDistance)
         {
             //increase bat speed
-            moveSpeed = 5.0f;
+            moveSpeed = 6.0f;
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
             transform.localScale = new Vector2(transform.position.x > target.transform.position.x ? (-Mathf.Sign(myRigidBody.velocity.x)) : (Mathf.Sign(myRigidBody.velocity.x)), 1f);
         }
         else
         {
-            moveSpeed = 3.0f;
+            moveSpeed = 4.0f;
             transform.position = Vector2.MoveTowards(transform.position, positions[index], moveSpeed * Time.deltaTime);
             if (transform.position == positions[index])
             {

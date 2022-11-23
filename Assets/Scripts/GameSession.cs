@@ -43,18 +43,22 @@ public class GameSession : MonoBehaviour
         ManageUiButtons(false);
         ChangeGameRunningState(true);
     }
-    public void ProcessPlayerDeath()
+    public void ProcessPlayerDeath(bool loadScene)
     {
-        if (playerLives > 1)
+        setLessLives();
+        if (playerLives < 1)
         {
-            TakeLife();
+            GameOver();
         }
         else
         {
-            playerLives--;
-            livesTxt.text = playerLives.ToString();
-            GameOver();
+            if (!loadScene)
+            {
+                return;
+            }
+            TakeLife();
         }
+
     }
     private void Update()
     {
@@ -65,15 +69,21 @@ public class GameSession : MonoBehaviour
     }
     void TakeLife()
     {
-        playerLives--;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentIndex);
-        livesTxt.text = playerLives.ToString();
+
+
 
     }
     public void setMoreLifes()
     {
         playerLives++;
+        livesTxt.text = playerLives.ToString();
+    }
+    public void setLessLives()
+    {
+        Debug.Log("setLessLives");
+        playerLives--;
         livesTxt.text = playerLives.ToString();
     }
 
@@ -83,7 +93,7 @@ public class GameSession : MonoBehaviour
         Time.timeScale = 0f;
         gameRunning = false;
         /* ManageUiButtons(true); */
-        
+
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
     }
     public void ChangeGameRunningState(bool gameRunning)

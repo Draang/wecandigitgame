@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider;
     BoxCollider2D myFeetCollider;
+    Collider2D topo;
     float gravityScale;
     bool isAlive = true;
 
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     GameObject bullet;
-    
+
     [SerializeField]
     GameObject cascoLost;
     GameSession gameSession;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     Transform gun;
     bool flagClimb = false;
     bool flagFall = false;
+    bool flagTopo = false;
     bool allowShootingVar = true;
 
     void Start()
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        topo = GetComponent<Collider2D>();
         gameSession = FindObjectOfType<GameSession>();
         gravityScale = myRigidbody.gravityScale;
     }
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
         ClimbLadder();
         Die();
+        Fire();
     }
 
     void OnMove(InputValue value)
@@ -105,24 +109,39 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
+    void Fire()
+    {
+        if (allowShootingVar)
+        {
+            //input key e
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Disparar();
+            }
+        }
+    }
     void OnFire(InputValue value)
     {
+        Debug.Log("Fire");
         if (gameSession.GetGameRunning())
         {
             if (!isAlive)
                 return;
             if (allowShootingVar)
             {
-                Instantiate(bullet, gun.position, transform.rotation);
-                myAnimator.SetBool("isShooting", true);
-                allowShootingVar = false;
-                Invoke("StopAnimationThrowing", 0.1f);
-                Invoke("AllowShooting", 0.7f);
+                Disparar();
             }
         }
     }
 
+    void Disparar()
+    {
+        Instantiate(bullet, gun.position, transform.rotation);
+        myAnimator.SetBool("isShooting", true);
+        allowShootingVar = false;
+        Invoke("StopAnimationThrowing", 0.1f);
+        Invoke("AllowShooting", 0.7f);
+    }
     void AllowShooting()
     {
         // myAnimator.SetBool("isShooting", false);
@@ -162,20 +181,20 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
-        {
-            Death();
-        }
+
     }
 
-    void Death()
+    void Death(bool loadScene)
     {
-        isAlive = false;
-          Instantiate(cascoLost, gun.position, transform.rotation);
+        Instantiate(cascoLost, gun.position, transform.rotation);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath(loadScene);
+        if (!loadScene)
+        {
+            return;
+        }
         myAnimator.SetTrigger("Dying");
         myRigidbody.velocity = deathKick;
-        
-        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+        isAlive = false;
         /* Invoke("Restart", 1f); */
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -187,8 +206,22 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "fallDetector")
         {
             flagFall = true;
-            Death();
+            Death(true);
         }
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
+        {
+            //delay a few seconds
+
+            Destroy(other.gameObject);
+            if (other.gameObject.tag == "topo")
+            {
+                //destroy the topo 
+                Death(false);
+                return;
+            }
+            Death(true);
+        }
+
     }
 
     void Restart()
