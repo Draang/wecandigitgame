@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.34
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -652,7 +652,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.46
+  orthographic size: 5.76
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -676,7 +676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.9204855, y: 1.5229027, z: -10.106686}
+  m_LocalPosition: {x: 1.1633329, y: 2.2229023, z: -10.106686}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2462,6 +2462,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
+  - first: {x: 22, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 64
+      m_TileSpriteIndex: 63
+      m_TileMatrixIndex: 1
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741826
   - first: {x: 24, y: 3, z: 0}
     second:
       serializedVersion: 2
@@ -2486,7 +2496,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 64
-      m_TileSpriteIndex: 54
+      m_TileSpriteIndex: 64
       m_TileMatrixIndex: 4
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2507,6 +2517,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 64
       m_TileSpriteIndex: 62
+      m_TileMatrixIndex: 4
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741826
+  - first: {x: 19, y: 5, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 64
+      m_TileSpriteIndex: 54
       m_TileMatrixIndex: 4
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -3292,7 +3312,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 209
+  - m_RefCount: 211
     m_Data: {fileID: 11400000, guid: a9cff33073ccb5345a265eee500c358a, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -3421,9 +3441,9 @@ Tilemap:
     m_Data: {fileID: 6935132370647462886, guid: f3431b64a116bf248a3f497144e67b13, type: 3}
   - m_RefCount: 33
     m_Data: {fileID: -4705204721984848065, guid: f3431b64a116bf248a3f497144e67b13, type: 3}
-  - m_RefCount: 9
+  - m_RefCount: 10
     m_Data: {fileID: 3018303679105224241, guid: f3431b64a116bf248a3f497144e67b13, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 7987931237783645867, guid: f3431b64a116bf248a3f497144e67b13, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
@@ -3444,7 +3464,7 @@ Tilemap:
       e31: 4.5905e-41
       e32: 0
       e33: 0
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data:
       e00: -1
       e01: -0
@@ -3498,7 +3518,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 194
+  - m_RefCount: 195
     m_Data:
       e00: 1
       e01: 0
@@ -3517,7 +3537,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 209
+  - m_RefCount: 211
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -3695,26 +3715,46 @@ CompositeCollider2D:
         Y: -100000096
       - X: 240000032
         Y: -100000096
+    - - X: 200000096
+        Y: 49999956
+      - X: 200000096
+        Y: 59375020
+      - X: 200000080
+        Y: 59375056
+      - X: 199375056
+        Y: 60000084
+      - X: 199375024
+        Y: 60000100
+      - X: 189999968
+        Y: 60000100
+      - X: 189999904
+        Y: 60000044
+      - X: 189999904
+        Y: 49999956
+      - X: 189999968
+        Y: 49999900
+      - X: 200000032
+        Y: 49999900
     - - X: 230000096
-        Y: 39999960
+        Y: 29999960
       - X: 230000096
-        Y: 49375020
-      - X: 230000080
-        Y: 49375056
-      - X: 229375056
-        Y: 50000084
-      - X: 229375024
+        Y: 50000044
+      - X: 230000032
         Y: 50000100
       - X: 219999968
         Y: 50000100
       - X: 219999904
         Y: 50000044
       - X: 219999904
-        Y: 39999960
-      - X: 219999968
-        Y: 39999900
+        Y: 32499976
+      - X: 219999920
+        Y: 32499936
+      - X: 223124944
+        Y: 29999912
+      - X: 223124976
+        Y: 29999900
       - X: 230000032
-        Y: 39999900
+        Y: 29999900
     - - X: 220000096
         Y: 19999960
       - X: 220000096
@@ -3927,11 +3967,16 @@ CompositeCollider2D:
       - {x: 22.99999, y: -3.2500105}
       - {x: 23.000002, y: -9.750014}
       - {x: 23.312508, y: -10.00001}
-    - - {x: 22.999975, y: 3.99999}
-      - {x: 23, y: 4.9375134}
-      - {x: 22.937492, y: 5.00001}
+    - - {x: 19.999975, y: 4.99999}
+      - {x: 20, y: 5.9375134}
+      - {x: 19.937492, y: 6.00001}
+      - {x: 18.99999, y: 5.999975}
+      - {x: 19.000027, y: 4.99999}
+    - - {x: 22.999975, y: 2.99999}
+      - {x: 22.999975, y: 5.00001}
       - {x: 21.99999, y: 4.999975}
-      - {x: 22.000027, y: 3.99999}
+      - {x: 22.000002, y: 3.249986}
+      - {x: 22.312508, y: 2.99999}
     - - {x: 21.999975, y: 1.99999}
       - {x: 22, y: 2.9375134}
       - {x: 21.937492, y: 3.00001}
@@ -4741,11 +4786,11 @@ MonoBehaviour:
   m_Instructions:
   - m_FullHash: 265838108
     m_VirtualCamera: {fileID: 1113448822}
-    m_ActivateAfter: 0.5
+    m_ActivateAfter: 0.3
     m_MinDuration: 0
   - m_FullHash: 256545655
     m_VirtualCamera: {fileID: 1609052632}
-    m_ActivateAfter: 0.8
+    m_ActivateAfter: 0
     m_MinDuration: 0
   - m_FullHash: -725336713
     m_VirtualCamera: {fileID: 364228642}
@@ -4788,7 +4833,7 @@ MonoBehaviour:
   m_BoundingVolume: {fileID: 0}
   m_BoundingShape2D: {fileID: 1301663157}
   m_ConfineScreenEdges: 1
-  m_Damping: 0
+  m_Damping: 0.2
 --- !u!4 &923250572 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1126733684646303991, guid: f46ae0382550d054d9b05f36ff9f3a07, type: 3}
@@ -4983,7 +5028,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 6.46
+    OrthographicSize: 5.76
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -4992,8 +5037,8 @@ MonoBehaviour:
     GateFit: 2
     m_SensorSize: {x: 1, y: 1}
   m_Transitions:
-    m_BlendHint: 1
-    m_InheritPosition: 1
+    m_BlendHint: 0
+    m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -6540,8 +6585,8 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7.31
-    NearClipPlane: 0.3
+    OrthographicSize: 4.65
+    NearClipPlane: -0.05
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -7046,12 +7091,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 0.9
-  m_YDamping: 1.2
-  m_ZDamping: 1.2
+  m_XDamping: 0
+  m_YDamping: 0.8
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
-  m_YawDamping: 0
+  m_YawDamping: 0.6
   m_RollDamping: 0
   m_AngularDamping: 0
 --- !u!114 &1743038909
@@ -7179,7 +7224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 1301663157}
+  m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &1862063005

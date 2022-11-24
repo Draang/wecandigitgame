@@ -75,6 +75,7 @@ public class GameSession : MonoBehaviour
 
 
     }
+    
     public void setMoreLifes()
     {
         playerLives++;
