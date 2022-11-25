@@ -83,7 +83,7 @@ public class GameSession : MonoBehaviour
     }
     public void setLessLives()
     {
-        Debug.Log("setLessLives");
+     
         playerLives--;
         livesTxt.text = playerLives.ToString();
     }

@@ -122,7 +122,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnFire(InputValue value)
     {
-        Debug.Log("Fire");
+     
         if (gameSession.GetGameRunning())
         {
             if (!isAlive)

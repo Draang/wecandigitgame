@@ -6,9 +6,11 @@ public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] enemyPrefabs;
+    [SerializeField] float invokeAfter=3.1f;
+    [SerializeField] float repeatAfter=70f;
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 3.1f, 70f);
+        InvokeRepeating("SpawnEnemy", invokeAfter, repeatAfter);
     }
     void Update()
     {
@@ -20,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
         int worms = 0;
         for (int i = 0; i < spawnPoints.Length; i++)
         {
-            int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+            int randomEnemy = Random.Range(0, enemyPrefabs.Length-1);
             if(randomEnemy == 0)
             {
                 bats++;
