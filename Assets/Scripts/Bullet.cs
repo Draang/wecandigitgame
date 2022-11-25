@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Enemys")
+        if (other.tag == "Enemys" || other.tag=="topo")
         {
             other.GetComponent<Animator>().SetTrigger("Dying");
             Destroy(other.gameObject, 0.35f);
