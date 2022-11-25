@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
 
     [SerializeField]
-    Vector2 deathKick = new Vector2(10f, 10f);
+    Vector2 deathKick = new Vector2(20f, 10f);
 
     [SerializeField]
     GameObject bullet;
@@ -216,6 +216,7 @@ public class PlayerMovement : MonoBehaviour
             if (other.gameObject.tag == "topo")
             {
                 //destroy the topo 
+                myRigidbody.velocity=deathKick;
                 Death(false);
                 return;
             }
