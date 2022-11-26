@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] enemyPrefabs;
     [SerializeField] float invokeAfter=3.1f;
     [SerializeField] float repeatAfter=70f;
+    int lives=3;
     void Start()
     {
         InvokeRepeating("SpawnEnemy", invokeAfter, repeatAfter);
@@ -38,6 +39,15 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyPrefabs[randomEnemy], spawnPoints[i].position, Quaternion.identity);
 
         }
+
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+            if(other.tag=="bullet" && lives>0){
+                lives--;
+                Debug.Log("has been hit");
+            }else{
+                Destroy(gameObject);
+            }
 
     }
 }
