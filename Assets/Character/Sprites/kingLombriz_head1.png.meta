@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5999170183d31a742b48d2e8420a62fb
+guid: 7c52049b9144c5644a4557f5f8b0dc8c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,64 +119,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kingLombriz_0
+      name: kingLombriz_head1_0
       rect:
         serializedVersion: 2
         x: 9
-        y: 818
-        width: 576
+        y: 1449
+        width: 612
         height: 432
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49345118, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c21415c6dcb71dc4eb64531749a119e9
-      internalID: 1352989491
+      spriteID: 7078a0bbfec97d94ea6958c105f52be0
+      internalID: 1480935890
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kingLombriz_1
+      name: kingLombriz_head1_1
       rect:
         serializedVersion: 2
-        x: 675
-        y: 818
-        width: 576
+        x: 9
+        y: 819
+        width: 612
         height: 432
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.48062164, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8465030ad65a5a1468da67cbc46fab31
-      internalID: 1334196375
+      spriteID: 4a2caf427de1c2f4c963ddb5b806b07a
+      internalID: 332768372
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kingLombriz_2
+      name: kingLombriz_head1_2
       rect:
         serializedVersion: 2
         x: 9
-        y: 171
-        width: 576
+        y: 196
+        width: 612
         height: 432
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.49262083, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b02f3c14fbac48f4cb4b6666386241e4
-      internalID: 1812946015
+      spriteID: 2bc6bb6080409ee48a8b961304fbc254
+      internalID: -1354729398
       vertices: []
       indices: 
       edges: []
@@ -192,9 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kingLombriz_2: 1812946015
-      kingLombriz_1: 1334196375
-      kingLombriz_0: 1352989491
+      kingLombriz_head1_0: 1480935890
+      kingLombriz_head1_2: -1354729398
+      kingLombriz_head1_1: 332768372
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
