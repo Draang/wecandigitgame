@@ -8,7 +8,7 @@ public class ScenePersist : MonoBehaviour
     {
         int numScenePersists = FindObjectsOfType<ScenePersist>().Length;
         if (numScenePersists > 1)
-        {
+        { 
             Destroy(gameObject);
         }
         else

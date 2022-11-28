@@ -5,12 +5,12 @@ using UnityEngine;
 public class BossMovement : MonoBehaviour
 {
     [SerializeField] GameObject[] enemySpawners;
-    [SerializeField] GameObject[] heads;
-float moveSpeed = 4.5f;
-  float moveRate = 4.5f;
+
+    float moveSpeed = 4.5f;
+    float moveRate = 4.5f;
     GameSession gameSession;
     Rigidbody2D myRigidBody;
-    bool flagIsMoving=true;
+    bool flagIsMoving = false;
 
 
     // Start is called before the first frame update
@@ -18,6 +18,9 @@ float moveSpeed = 4.5f;
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
+        // enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
+
+
     }
 
     // Update is called once per frame
@@ -27,22 +30,33 @@ float moveSpeed = 4.5f;
         {
             return;
         }
-        if(flagIsMoving){
-        moveRate = transform.localScale.x > 0 ? moveSpeed : -moveSpeed;
-        myRigidBody.velocity = new Vector2(moveRate, 0f);}
+        if (flagIsMoving)
+        {
+            //move side by side
+            moveRate = transform.localScale.x > 0 ? moveSpeed : -moveSpeed;
+            myRigidBody.velocity = new Vector2(moveRate, 0f);
+        }
+        // {
+        // }
+    }
+    //create stop moving coroutine
+    IEnumerator StopMoving()
+    {
+        yield return new WaitForSeconds(2f);
+        flagIsMoving = true;
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.tag != "bullet")
         {
-            return;
+            Flip();
         }
-        Flip();
     }
-     void Flip()
+
+    void Flip()
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
     }
     //Create secuencia para la activacion de targets
-    
+
 }

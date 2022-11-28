@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] AnimatorControllerParameter enemyAnimation;
     PlayerMovement player;
     GameSession gameSession;
+    GameObject BossHeads;
     float xSpeed;
     void Start()
     {
@@ -28,7 +29,7 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Enemys" || other.tag=="topo")
+        if (other.tag == "Enemys" || other.tag == "topo")
         {
             other.GetComponent<Animator>().SetTrigger("Dying");
             Destroy(other.gameObject, 0.35f);
@@ -38,6 +39,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+
         Destroy(gameObject);
     }
 }

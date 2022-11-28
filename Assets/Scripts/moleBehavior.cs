@@ -33,7 +33,6 @@ public class moleBehavior : MonoBehaviour
         {
             return;
         }
-        Debug.Log(Mathf.Round(Vector2.Distance(new Vector2(transform.position.x, 0f), new Vector2(target.position.x, 0f))));
         switch (Mathf.Round(Vector2.Distance(new Vector2(transform.position.x, 0f), new Vector2(target.position.x, 0f))))
         {
             case <= attckD - 8:

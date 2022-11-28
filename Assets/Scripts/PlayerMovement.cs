@@ -120,15 +120,16 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnFire(InputValue value)
     {
-     
-        if (gameSession.GetGameRunning())
+
+        if (!gameSession.GetGameRunning())
         {
-            if (!isAlive)
-                return;
-            if (allowShootingVar)
-            {
-                Disparar();
-            }
+            return;
+        }
+        if (!isAlive)
+            return;
+        if (allowShootingVar)
+        {
+            Disparar();
         }
     }
 
@@ -138,11 +139,10 @@ public class PlayerMovement : MonoBehaviour
         myAnimator.SetBool("isShooting", true);
         allowShootingVar = false;
         Invoke("StopAnimationThrowing", 0.1f);
-        Invoke("AllowShooting", 0.7f);
+        Invoke("AllowShooting", 0.6f);
     }
     void AllowShooting()
     {
-        // myAnimator.SetBool("isShooting", false);
         allowShootingVar = true;
     }
 
@@ -155,25 +155,24 @@ public class PlayerMovement : MonoBehaviour
     {
         if (gameSession.GetGameRunning())
         {
-            if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
-            {
-                flagClimb = false;
-                myRigidbody.gravityScale = gravityScale;
-                myAnimator.SetBool("isClimbing", false);
-                return;
-            }
-            if (moveInput.y == 1)
-            {
-                flagClimb = true;
-            }
-            if (flagClimb)
-            {
-                Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
-                myRigidbody.gravityScale = 0;
-                myRigidbody.velocity = playerVelocity;
-                bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
-                myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
-            }
+            return;
+        }
+
+        if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ladder")))
+        {
+            flagClimb = false;
+            myRigidbody.gravityScale = gravityScale;
+            myAnimator.SetBool("isClimbing", false);
+            return;
+        }
+        flagClimb = moveInput.y == 1 ? true : false;
+        if (flagClimb)
+        {
+            Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
+            myRigidbody.gravityScale = 0;
+            myRigidbody.velocity = playerVelocity;
+            bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+            myAnimator.SetBool("isClimbing", playerHasVerticalSpeed);
         }
     }
 
@@ -181,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
     void Death(bool loadScene, bool killedByBoss)
     {
         Instantiate(cascoLost, gun.position, transform.rotation);
-        FindObjectOfType<GameSession>().ProcessPlayerDeath(loadScene,killedByBoss);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath(loadScene, killedByBoss);
         if (!loadScene)
         {
             return;
@@ -189,11 +188,11 @@ public class PlayerMovement : MonoBehaviour
         myAnimator.SetTrigger("Dying");
         myRigidbody.velocity = deathKick;
         isAlive = false;
-        /* Invoke("Restart", 1f); */
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        bool killedByBoss=false;
+        bool killedByBoss = false;
+        bool killedBytopo = false;
         if (flagFall)
         {
             return;
@@ -201,24 +200,22 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "fallDetector")
         {
             flagFall = true;
-            Death(true,killedByBoss);
         }
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
-            //delay a few seconds
-
             
+            Debug.Log("Player has died" + other.gameObject.tag);            
             if (other.gameObject.tag == "topo")
             {
-                //destroy the topo 
+                killedBytopo = true;
                 Destroy(other.gameObject);
-                myRigidbody.velocity=deathKick;
-                Death(false,killedByBoss);
-                return;
-            }else if(other.gameObject.tag=="Boss"){
-                killedByBoss=true;
+                myRigidbody.velocity = deathKick;
             }
-            Death(true, killedByBoss);
+            else if (other.gameObject.tag == "Boss" ||other.gameObject.tag == "BossHead1" || other.gameObject.tag == "BossHead2" || other.gameObject.tag == "BossHead3")
+            {
+                killedByBoss = true;
+            }
+            Death(!killedBytopo || flagFall, killedByBoss);
         }
 
     }

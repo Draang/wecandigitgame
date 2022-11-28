@@ -48,7 +48,7 @@ public class GameSession : MonoBehaviour
         setLessLives();
         if (playerLives < 1 || killedByBoss)
         {
-            playerLives=1;
+            playerLives = 1;
             setLessLives();
             GameOver();
         }
@@ -77,7 +77,7 @@ public class GameSession : MonoBehaviour
 
 
     }
-    
+
     public void setMoreLifes()
     {
         playerLives++;
@@ -85,7 +85,7 @@ public class GameSession : MonoBehaviour
     }
     public void setLessLives()
     {
-     
+
         playerLives--;
         livesTxt.text = playerLives.ToString();
     }
@@ -99,7 +99,7 @@ public class GameSession : MonoBehaviour
 
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
     }
-  
+
     public void ChangeGameRunningState(bool gameRunning)
     {
         this.gameRunning = gameRunning;
