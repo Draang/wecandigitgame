@@ -30,7 +30,7 @@ public class bossHeads : MonoBehaviour
             {
                 Debug.Log("Boss death " + tag);
                 BossAnimator.SetBool("Dying", alive);
-                Destroy(Boss, 0.35f);
+                Destroy(Boss, 0.80f);
             }
 
             Destroy(gameObject);
