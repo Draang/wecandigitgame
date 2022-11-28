@@ -24,12 +24,12 @@ public class bossHeads : MonoBehaviour
             Debug.Log("hited to   " + tag);
 
             BossAnimator.SetBool(tag, true);
-            bool alive = BossAnimator.GetBool("head1") || BossAnimator.GetBool("head2") || BossAnimator.GetBool("head3");
+            bool alive = !BossAnimator.GetBool("head1") || !BossAnimator.GetBool("head2") || !BossAnimator.GetBool("head3");
             if (!alive)
             {
                 Debug.Log("Boss death " + tag);
                 BossAnimator.SetBool("Dying", alive);
-                Destroy(Boss, 0.35f);
+                Destroy(Boss, 0.80f);
             }
 
             Destroy(gameObject);
