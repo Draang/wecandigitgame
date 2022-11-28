@@ -27,6 +27,7 @@ public class bossHeads : MonoBehaviour
             bool alive = BossAnimator.GetBool("head1") || BossAnimator.GetBool("head2") || BossAnimator.GetBool("head3");
             if (!alive)
             {
+                Debug.Log("Boss death " + tag);
                 BossAnimator.SetBool("Dying", alive);
                 Destroy(Boss, 0.35f);
             }
