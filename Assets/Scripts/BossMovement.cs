@@ -12,13 +12,11 @@ public class BossMovement : MonoBehaviour
     Rigidbody2D myRigidBody;
     bool flagIsMoving = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
-        // enemySpawners = GameObject.FindGameObjectsWithTag("EnemySpawner");
 
 
     }

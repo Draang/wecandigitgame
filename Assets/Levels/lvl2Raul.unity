@@ -6599,7 +6599,7 @@ GameObject:
   - component: {fileID: 1378555288}
   m_Layer: 11
   m_Name: Heads
-  m_TagString: Boss
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6792,7 +6792,7 @@ GameObject:
   - component: {fileID: 1455466945}
   m_Layer: 11
   m_Name: head2
-  m_TagString: BossHead2
+  m_TagString: head2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7459,7 +7459,7 @@ GameObject:
   - component: {fileID: 1670878587}
   m_Layer: 11
   m_Name: head3
-  m_TagString: BossHead3
+  m_TagString: head3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7934,7 +7934,7 @@ GameObject:
   - component: {fileID: 1983199260}
   m_Layer: 11
   m_Name: head1
-  m_TagString: BossHead1
+  m_TagString: head1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
