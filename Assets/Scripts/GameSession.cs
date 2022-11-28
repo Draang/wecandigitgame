@@ -43,11 +43,13 @@ public class GameSession : MonoBehaviour
         ManageUiButtons(false);
         ChangeGameRunningState(true);
     }
-    public void ProcessPlayerDeath(bool loadScene)
+    public void ProcessPlayerDeath(bool loadScene, bool killedByBoss)
     {
         setLessLives();
-        if (playerLives < 1)
+        if (playerLives < 1 || killedByBoss)
         {
+            playerLives=1;
+            setLessLives();
             GameOver();
         }
         else
@@ -97,6 +99,7 @@ public class GameSession : MonoBehaviour
 
         FindObjectOfType<ScenePersist>().DestroyScenePersist();
     }
+  
     public void ChangeGameRunningState(bool gameRunning)
     {
         this.gameRunning = gameRunning;

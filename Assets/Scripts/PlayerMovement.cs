@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
     Transform gun;
     bool flagClimb = false;
     bool flagFall = false;
-    bool flagTopo = false;
     bool allowShootingVar = true;
 
     void Start()
@@ -63,7 +62,6 @@ public class PlayerMovement : MonoBehaviour
         Run();
         FlipSprite();
         ClimbLadder();
-        Die();
         Fire();
     }
 
@@ -179,15 +177,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void Die()
-    {
 
-    }
-
-    void Death(bool loadScene)
+    void Death(bool loadScene, bool killedByBoss)
     {
         Instantiate(cascoLost, gun.position, transform.rotation);
-        FindObjectOfType<GameSession>().ProcessPlayerDeath(loadScene);
+        FindObjectOfType<GameSession>().ProcessPlayerDeath(loadScene,killedByBoss);
         if (!loadScene)
         {
             return;
@@ -199,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        bool killedByBoss=false;
         if (flagFall)
         {
             return;
@@ -206,21 +201,24 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.tag == "fallDetector")
         {
             flagFall = true;
-            Death(true);
+            Death(true,killedByBoss);
         }
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
             //delay a few seconds
 
-            Destroy(other.gameObject);
+            
             if (other.gameObject.tag == "topo")
             {
                 //destroy the topo 
+                Destroy(other.gameObject);
                 myRigidbody.velocity=deathKick;
-                Death(false);
+                Death(false,killedByBoss);
                 return;
+            }else if(other.gameObject.tag=="Boss"){
+                killedByBoss=true;
             }
-            Death(true);
+            Death(true, killedByBoss);
         }
 
     }
