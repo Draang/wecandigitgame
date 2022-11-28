@@ -10,13 +10,15 @@ public class BossMovement : MonoBehaviour
     float moveRate = 4.5f;
     GameSession gameSession;
     Rigidbody2D myRigidBody;
-    bool flagIsMoving = false;
+    bool flagIsMoving = true;
+    [SerializeField] GameObject exit;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
+        exit.SetActive(false);
 
 
     }
@@ -38,15 +40,12 @@ public class BossMovement : MonoBehaviour
         // }
     }
     //create stop moving coroutine
-    IEnumerator StopMoving()
-    {
-        yield return new WaitForSeconds(2f);
-        flagIsMoving = true;
-    }
+  
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "bullet")
         {
+          
             Flip();
         }
     }
@@ -54,6 +53,9 @@ public class BossMovement : MonoBehaviour
     void Flip()
     {
         transform.localScale = new Vector2(-(Mathf.Sign(myRigidBody.velocity.x)), 1f);
+    }
+    public void setActiveExit(){
+        exit.SetActive(true);
     }
     //Create secuencia para la activacion de targets
 

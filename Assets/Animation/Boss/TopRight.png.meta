@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 75
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,7 +117,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TopRight_0
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1449
+        width: 450
+        height: 432
+      alignment: 9
+      pivot: {x: 0.3099541, y: 0.28173488}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2994b89e42e4d8240828744da2028fa7
+      internalID: 478218708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopRight_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 819
+        width: 450
+        height: 432
+      alignment: 9
+      pivot: {x: 0.2884151, y: 0.2811553}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce2e78fb1666ac541ac1414106b0b474
+      internalID: 478065048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TopRight_2
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 197
+        width: 450
+        height: 432
+      alignment: 9
+      pivot: {x: 0.31025696, y: 0.2411428}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca468da8119dffd4392731a2cb7e84b5
+      internalID: -522304338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -128,7 +191,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TopRight_2: -522304338
+      TopRight_0: 478218708
+      TopRight_1: 478065048
   spritePackingTag: 
   pSDRemoveMatte: 0
   userData: 
