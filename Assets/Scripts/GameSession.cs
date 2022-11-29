@@ -18,6 +18,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] Canvas gameOverCanvas;
     private void Awake()
     {
+        livesTxt.text = playerLives.ToString();
         int numGameSessions = FindObjectsOfType<GameSession>().Length;
         if (numGameSessions > 1)
         {
@@ -46,6 +47,7 @@ public class GameSession : MonoBehaviour
     public void ProcessPlayerDeath(bool loadScene, bool killedByBoss)
     {
         setLessLives();
+        Debug.Log(playerLives + " " + killedByBoss);
         if (playerLives < 1 || killedByBoss)
         {
             playerLives = 1;
@@ -136,8 +138,9 @@ public class GameSession : MonoBehaviour
     }
     public void doReturnToMenu()
     {
-        Destroy(gameObject);
         SceneManager.LoadScene(0);
+        FindObjectOfType<ScenePersist>().DestroyScenePersist();
+        Destroy(gameObject);
 
     }
     public void doRestartGame()

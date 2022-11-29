@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     Transform gun;
     bool flagClimb = false;
     bool flagFall = false;
+    bool flagDead = false;
     bool allowShootingVar = true;
 
     void Start()
@@ -193,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool killedByBoss = false;
         bool killedBytopo = false;
-        if (flagFall)
+        if (flagFall || flagDead)
         {
             return;
         }
@@ -203,18 +204,18 @@ public class PlayerMovement : MonoBehaviour
         }
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
-            
-            Debug.Log("Player has died" + other.gameObject.tag);            
+            flagDead = true;
             if (other.gameObject.tag == "topo")
             {
                 killedBytopo = true;
                 Destroy(other.gameObject);
                 myRigidbody.velocity = deathKick;
             }
-            else if (other.gameObject.tag == "Boss" ||other.gameObject.tag == "BossHead1" || other.gameObject.tag == "BossHead2" || other.gameObject.tag == "BossHead3")
+            else if (other.gameObject.tag == "Boss" || other.gameObject.tag == "BossHead1" || other.gameObject.tag == "BossHead2" || other.gameObject.tag == "BossHead3")
             {
                 killedByBoss = true;
             }
+
             Death(!killedBytopo || flagFall, killedByBoss);
         }
 
