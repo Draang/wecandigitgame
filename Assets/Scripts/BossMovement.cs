@@ -1,16 +1,19 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BossMovement : MonoBehaviour
 {
     [SerializeField] GameObject[] enemySpawners;
 
     float moveSpeed = 4.5f;
+    float moveRate = 4.5f;
     // float moveRate = 4.5f;
     GameSession gameSession;
     Rigidbody2D myRigidBody;
-    bool flagIsMoving = true;
+    bool flagIsMoving = false;
+    bool continueCoroutine = true;
     [SerializeField] GameObject exit;
 
     // Start is called before the first frame update
@@ -18,10 +21,9 @@ public class BossMovement : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
+   StartCoroutine(onChangeMovingState());
         exit = GameObject.Find("Exit");
         exit.SetActive(false);
-
-
 
     }
 
@@ -34,43 +36,41 @@ public class BossMovement : MonoBehaviour
         }
         if (flagIsMoving)
         {
-            //move left to right
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(0, transform.position.y), moveSpeed * Time.deltaTime);
-            if (transform.position.x == 0)
-            {
-                flagIsMoving = false;
-            }
+            moveRate = transform.localScale.x > 0 ? moveSpeed : -moveSpeed;
+            myRigidBody.velocity = new Vector2(moveRate, 0f);
+
         }
         else
         {
-            //move right to left
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-10, transform.position.y), moveSpeed * Time.deltaTime);
-            if (transform.position.x == -10)
-            {
-                flagIsMoving = true;
-            }
+            myRigidBody.velocity = new Vector2(0f, 0f);
         }
-        //     transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x - 5, transform.position.y), moveSpeed * Time.deltaTime);
-        //     if (transform.position.x <= -5)
-        //     {
-        //         flagIsMoving = false;
-        //     }
 
-        //     // moveRate = transform.localScale.x > 0 ? moveSpeed : -moveSpeed;
-        //     // myRigidBody.velocity = new Vector2(moveRate, 0f);
-        // }
-        // {
-        // }
+    }
+    void ChangeMovingState()
+    {
+        flagIsMoving = !flagIsMoving;
+
+    }
+    IEnumerator onChangeMovingState()
+    {
+        while (continueCoroutine)
+        {
+            Debug.Log("Stop Coruina");
+            flagIsMoving = !flagIsMoving;
+            yield return new WaitForSeconds(flagIsMoving ? 10f : 3f);
+
+        }
     }
     //create stop moving coroutine
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != "bullet")
+        if (collision.gameObject.tag == "bullet")
         {
 
-            Flip();
+            return;
         }
+        Flip();
     }
 
     void Flip()

@@ -35,18 +35,18 @@ public class moleBehavior : MonoBehaviour
         }
         switch (Mathf.Round(Vector2.Distance(new Vector2(transform.position.x, 0f), new Vector2(target.position.x, 0f))))
         {
-            case <= attckD - 8:
+            case <= attckD - 10:
 
                 SetAnimatorStatesFalse(new string[] { "isLeaningOut1", "isLeaningOut2", "isLeaningOut3" });
                 myAnimator.SetBool("isAttacking", true);
                 jumpMole();
                 break;
-            case <= attckD - 6:
+            case <= attckD - 8:
                 Stop();
                 SetAnimatorStatesFalse(new string[] { "isLeaningOut1", "isLeaningOut2", "isAttacking" });
                 myAnimator.SetBool("isLeaningOut3", true);
                 break;
-            case <= attckD - 2:
+            case <= attckD - 7:
                 SetAnimatorStatesFalse(new string[] { "isLeaningOut2", "isLeaningOut3", "isAttacking" });
                 Stop();
                 myAnimator.SetBool("isLeaningOut1", true);

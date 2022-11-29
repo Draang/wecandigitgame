@@ -154,8 +154,10 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-        if (gameSession.GetGameRunning())
+       
+        if (!gameSession.GetGameRunning())
         {
+            
             return;
         }
 
@@ -204,7 +206,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
-            flagDead = true;
+            
             if (other.gameObject.tag == "topo")
             {
                 killedBytopo = true;
@@ -214,9 +216,14 @@ public class PlayerMovement : MonoBehaviour
             else if (other.gameObject.tag == "Boss" || other.gameObject.tag == "BossHead1" || other.gameObject.tag == "BossHead2" || other.gameObject.tag == "BossHead3")
             {
                 killedByBoss = true;
+               
+            }else{
+                flagDead = true;
             }
 
-            Death(!killedBytopo || flagFall, killedByBoss);
+            Death(!killedBytopo || flagFall, killedByBoss);;
+            killedBytopo=false;
+
         }
 
     }
