@@ -21,7 +21,7 @@ public class BossMovement : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         gameSession = FindObjectOfType<GameSession>();
-   StartCoroutine(onChangeMovingState());
+        StartCoroutine(onChangeMovingState());
         exit = GameObject.Find("Exit");
         exit.SetActive(false);
 
@@ -55,7 +55,6 @@ public class BossMovement : MonoBehaviour
     {
         while (continueCoroutine)
         {
-            Debug.Log("Stop Coruina");
             flagIsMoving = !flagIsMoving;
             yield return new WaitForSeconds(flagIsMoving ? 10f : 3f);
 
