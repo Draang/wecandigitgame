@@ -44,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
             if(other.tag=="bullet" && lives>0){
                 lives--;
-                Debug.Log("has been hit");
             }else{
                 Destroy(gameObject);
             }

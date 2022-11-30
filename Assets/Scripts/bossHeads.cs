@@ -13,22 +13,13 @@ public class bossHeads : MonoBehaviour
         Boss = GameObject.Find("ReyLombriz");
         BossAnimator = Boss.GetComponent<Animator>();
     }
-
-    void Update()
-    {
-
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "bullet")
         {
 
             BossAnimator.SetBool(tag, true);
-
-            Debug.Log(BossAnimator.GetBool("head1") + " " + BossAnimator.GetBool("head2") + " " + BossAnimator.GetBool("head3"));
             bool alive = !BossAnimator.GetBool("head1") || !BossAnimator.GetBool("head2") || !BossAnimator.GetBool("head3");
-            bool alive2 = !BossAnimator.GetBool("head1") || !BossAnimator.GetBool("head2") || !BossAnimator.GetBool("head3");
-            Debug.Log(alive + " " + alive2);
             if (!alive)
             {
                 BossAnimator.SetBool("Dying", alive);

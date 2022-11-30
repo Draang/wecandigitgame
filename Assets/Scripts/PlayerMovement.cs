@@ -154,10 +154,10 @@ public class PlayerMovement : MonoBehaviour
 
     void ClimbLadder()
     {
-       
+
         if (!gameSession.GetGameRunning())
         {
-            
+
             return;
         }
 
@@ -168,7 +168,8 @@ public class PlayerMovement : MonoBehaviour
             myAnimator.SetBool("isClimbing", false);
             return;
         }
-        flagClimb = moveInput.y == 1 ? true : false;
+        flagClimb = moveInput.y >= -1 ? true : false;
+        Debug.Log(moveInput.y);
         if (flagClimb)
         {
             Vector2 playerVelocity = new Vector2(myRigidbody.velocity.x, moveInput.y * climbSpeed);
@@ -206,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemys", "Hazards", "Estalactita")))
         {
-            
+
             if (other.gameObject.tag == "topo")
             {
                 killedBytopo = true;
@@ -216,13 +217,15 @@ public class PlayerMovement : MonoBehaviour
             else if (other.gameObject.tag == "Boss" || other.gameObject.tag == "BossHead1" || other.gameObject.tag == "BossHead2" || other.gameObject.tag == "BossHead3")
             {
                 killedByBoss = true;
-               
-            }else{
+
+            }
+            else
+            {
                 flagDead = true;
             }
 
-            Death(!killedBytopo || flagFall, killedByBoss);;
-            killedBytopo=false;
+            Death(!killedBytopo || flagFall, killedByBoss); ;
+            killedBytopo = false;
 
         }
 
